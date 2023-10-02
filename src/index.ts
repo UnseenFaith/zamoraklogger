@@ -507,6 +507,7 @@ async function findtrailComplete(img: a1lib.ImgRef, autobool: boolean) {
 				lastValueStr = lastValueStr.slice(0,-1);
 			}
 		} catch (e) {
+			console.log(e);
 			return;
 		}
 
