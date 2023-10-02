@@ -1519,7 +1519,7 @@ var ZamorakReader = /** @class */ (function () {
         // These tweaks allow for this to read Barrows clue windows.
         var xtweak = 0;
         var ytweak = 125;
-        var str = alt1_ocr__WEBPACK_IMPORTED_MODULE_0___default().findReadLine(buf, (alt1_fonts_aa_9px_mono_allcaps_js__WEBPACK_IMPORTED_MODULE_1___default()), [[255, 255, 255]], 134 + xcomp + xtweak, 113 + ycomp + ytweak);
+        var str = alt1_ocr__WEBPACK_IMPORTED_MODULE_0__.findReadLine(buf, (alt1_fonts_aa_9px_mono_allcaps_js__WEBPACK_IMPORTED_MODULE_1___default()), [[255, 255, 255]], 134 + xcomp + xtweak, 113 + ycomp + ytweak);
         // alt1.overLayText("value", a1lib.mixColor(255,255,255), 12, this.pos.rect.x + 134 + xcomp + xtweak, this.pos.rect.y + 113 + ycomp + ytweak, 1000)
         if (!str.text) {
             console.log("Str is not txt");
