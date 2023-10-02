@@ -38,5 +38,10 @@
     "tab": "general",
     "quantity": 0,
     "order": 8
+  },
+  "Huge bladed rune salvage": {
+    "tab": "general",
+    "quantity": 0,
+    "order": 9
   }
 }
