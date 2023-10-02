@@ -8,9 +8,13 @@ import pixelmatch from "pixelmatch";
 import ZamorakReader from "./scripts/ZamorakReader";
 import { ModalUIReader } from "./scripts/ModalUIReader";
 
-import * as lsdb from "./JSON/LocalStorageZamorakInit.json";
-import * as itemsAll from "./JSON/ItemsAndImagesZamorak.json";
-import * as itemsAllLegacy from "./JSON/ItemsAndImagesZamorakLegacy.json";
+import "./JSON/LocalStorageZamorakInit.json";
+import "./JSON/ItemsAndImagesZamorak.json";
+import "./JSON/ItemsAndImagesZamorakLegacy.json";
+
+var lsdb;
+var itemsAll;
+var itemsAllLegacy;
 
 import "./index.html";
 import "./appconfig.json";
@@ -93,6 +97,12 @@ export async function initOnLoad() {
 
 export async function init() {
 	buttonDisabler();
+
+	// Hacky Json Load, Worry about this later
+	lsdb = await window.fetch(new URL("./LocalStorageZamorakInit.json", document.location.href).href).then(res => res.json());
+	itemsAll = await window.fetch(new URL("./ItemsAndImagesZamorak.json", document.location.href).href).then(res => res.json());
+	itemsAllLegacy = await window.fetch(new URL("./ItemsAndImagesZamorakLegacy.json", document.location.href).href).then(res => res.json());
+
 
 	// TODO: This is a fix for when the buttons are clicked once.
 	// When clicked once, it does nothing but when clicked a second
