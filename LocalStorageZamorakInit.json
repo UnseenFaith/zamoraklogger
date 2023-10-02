@@ -33,5 +33,10 @@
     "tab": "general",
     "quantity": 0,
     "order": 7
+  },
+  "Raw rocktail": {
+    "tab": "general",
+    "quantity": 0,
+    "order": 8
   }
 }
