@@ -1,7 +1,12 @@
 {
   "Hydrix bolt tips": {
-      "tab": "equipment",
+      "tab": "general",
       "quantity": 0,
       "order": 1
+  },
+  "Soul rune": {
+      "tab": "general",
+      "quantity": 0,
+      "order": 2
   }
 }
