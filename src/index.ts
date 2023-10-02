@@ -424,7 +424,7 @@ async function findtrailComplete(img: a1lib.ImgRef, autobool: boolean) {
 	try {
 		let loc;
 		const imgCaptures = [img.findSubimage(imgs.zamorakChest),
-							 undefined
+							 [undefined] // Add Legacy back maybe eventually?
 							];
 		if (imgCaptures[0][0] !== undefined) {
 			loc = imgCaptures[0];
