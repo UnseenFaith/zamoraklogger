@@ -2243,4 +2243,7 @@ if (window.alt1) {
 	//this makes alt1 show the add app button when running inside the embedded browser
 	//also updates app settings if they are changed
 	alt1.identifyAppUrl("./appconfig.json");
+} else {
+	let addappurl = `alt1://addapp/${new URL("./appconfig.json", document.location.href).href}`;
+	document.getElementsByClassName("nis")[0].innerHTML = `Alt1 not detected, click <a href='${addappurl}'>here</a> to add this app to Alt1`;
 }
