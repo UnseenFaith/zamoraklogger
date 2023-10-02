@@ -5524,8 +5524,8 @@ function findtrailComplete(img, autobool) {
                     // Not sure how to handlet his going forward, hardcode for now
                     // Since Dwarf weeds and lantadyme seeds are always dropped together
                     // we can assume that two torstol seeds next to each other must be these two seeds and fix them
-                    for (i = 0; i <= itemResults.length; i++) {
-                        for (j = 0; j <= itemResults[i].length; j++) {
+                    for (i = 0; i < itemResults.length; i++) {
+                        for (j = 0; j < itemResults[i].length; j++) {
                             if (((j + 1) <= itemResults[i].length) && itemResults[i][j] == "Torstol seed" && itemResults[i][j + 1] == "Torstol seed") {
                                 itemResults[i][j] = "Dwarf weed seed";
                                 itemResults[i][j + 1] = "Lantadyme seed";
