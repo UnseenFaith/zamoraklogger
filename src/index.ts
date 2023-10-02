@@ -62,7 +62,7 @@ var lagCounter = 0;
 
 var insertVerif = [];
 
-// Adjust this for larger windows. I want 12 cause barrows.
+// Adjust this for larger windows. I want 12 cause Zamorak.
 var cap = 12
 
 var imgs = a1lib.webpackImages({
@@ -801,7 +801,7 @@ async function findtrailComplete(img: a1lib.ImgRef, autobool: boolean) {
 			alt1.overLayClearGroup("rect");
 			alt1.overLayClearGroup("lag");
 			alt1.overLaySetGroup("overlays");
-			alt1.overLayTextEx("Barrows rewards captured successfully!",
+			alt1.overLayTextEx("Zamorak rewards captured successfully!",
 				a1lib.mixColor(100, 255, 100), 20, Math.round(alt1.rsWidth / 2), 200, 4000, "", true, true);
 			alt1.overLayRect(a1lib.mixColor(0, 255, 0), xRect, yRect, imgs.zamorakChest.width + 345, imgs.zamorakChest.height + 291, 1000, 2);
 		}
@@ -1229,7 +1229,7 @@ function historyInit() {
 					customSpan.setAttribute("class", "customSpan");
 					customSpan.setAttribute("title", "Custom clue manually inserted.");
 					customSpan.textContent = " [C] ";
-					let countText = "Barrows reward: " + index;
+					let countText = "Zamorak reward: " + index;
 
 					let count = document.createElement("div") as HTMLDivElement;
 					count.innerHTML = countText;
@@ -1239,7 +1239,7 @@ function historyInit() {
 				}
 				else {
 					let count = document.createElement("div") as HTMLDivElement;
-					count.textContent = "Barrows reward: " + index;
+					count.textContent = "Zamorak reward: " + index;
 					count.setAttribute("class", "historyCount");
 					container.append(count);
 				}
@@ -1410,7 +1410,7 @@ export function rollbackYes(id: any) {
 		if (historyCount[i] == undefined) {
 			continue;
 		}
-		historyCount[i].textContent = "Barrows reward: " + index;
+		historyCount[i].textContent = "Zamorak reward: " + index;
 		index--;
 	}
 
@@ -1614,7 +1614,7 @@ export async function verifyInsert(event: Event) {
 	customSpan.setAttribute("title", "Custom clue manually inserted.");
 	customSpan.textContent = " [C] ";
 
-	let countText = "barrows chest" + ": " + curr;
+	let countText = "Zamorak chest" + ": " + curr;
 	let count = document.createElement("div") as HTMLDivElement;
 	count.innerHTML = countText;
 	count.setAttribute("class","historyCount");
@@ -1697,7 +1697,7 @@ export function insertToDB() {
 	if (window.alt1) {
 		alt1.overLayClearGroup("overlays");
 		alt1.overLaySetGroup("overlays");
-		alt1.overLayTextEx("Submitting custom barrows reward to Database...",
+		alt1.overLayTextEx("Submitting custom Zamorak reward to Database...",
 			a1lib.mixColor(255, 144, 0), 20, Math.round(alt1.rsWidth / 2), 200, 40000, "", true, true);
 	}
 
@@ -1739,7 +1739,7 @@ export function insertToDB() {
 	if (window.alt1) {
 		alt1.overLayClearGroup("overlays");
 		alt1.overLaySetGroup("overlays");
-		alt1.overLayTextEx("Custom Barrows chest submitted successfully!",
+		alt1.overLayTextEx("Custom Zamorak chest submitted successfully!",
 			a1lib.mixColor(100, 255, 100), 20, Math.round(alt1.rsWidth / 2), 200, 4000, "", true, true);
 	}
 }
