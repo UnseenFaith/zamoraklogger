@@ -30,3 +30,4 @@ jobs:
             images/*
             scripts/*
             styles/*
+            .gitignore
