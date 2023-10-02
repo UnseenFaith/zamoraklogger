@@ -741,7 +741,7 @@ async function findtrailComplete(img: a1lib.ImgRef, autobool: boolean) {
 		// Since Dwarf weeds and lantadyme seeds are always dropped together
 		// we can assume that two torstol seeds next to each other must be these two seeds and fix them
 		for (let i = 0; i <= itemResults.length; i++) {
-			if (((i + 1) <= itemResults.length) && itemResults[i] == "Torstol seed" && itemResults[i+1] == "Torstol seed")) {
+			if (((i + 1) <= itemResults.length) && itemResults[i] == "Torstol seed" && itemResults[i+1] == "Torstol seed") {
 				itemResults[i] = "Dwarf weed seed";
 				itemResults[i+1] = "Lantadyme seed";
 			}
