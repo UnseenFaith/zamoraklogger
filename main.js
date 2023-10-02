@@ -1519,7 +1519,7 @@ var ZamorakReader = /** @class */ (function () {
         // These tweaks allow for this to read Barrows clue windows.
         var xtweak = 0;
         var ytweak = 125;
-        var str = alt1_ocr__WEBPACK_IMPORTED_MODULE_0___default().findReadLine(buf, (alt1_fonts_aa_9px_mono_allcaps_js__WEBPACK_IMPORTED_MODULE_1___default()), [[255, 255, 255]], 134 + xcomp + xtweak, 113 + ycomp + ytweak);
+        var str = alt1_ocr__WEBPACK_IMPORTED_MODULE_0__.findReadLine(buf, (alt1_fonts_aa_9px_mono_allcaps_js__WEBPACK_IMPORTED_MODULE_1___default()), [[255, 255, 255]], 134 + xcomp + xtweak, 113 + ycomp + ytweak);
         // alt1.overLayText("value", a1lib.mixColor(255,255,255), 12, this.pos.rect.x + 134 + xcomp + xtweak, this.pos.rect.y + 113 + ycomp + ytweak, 1000)
         if (!str.text) {
             console.log("Str is not txt");
@@ -4602,36 +4602,6 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_alt1_base__;
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/create fake namespace object */
-/******/ 	(() => {
-/******/ 		var getProto = Object.getPrototypeOf ? (obj) => (Object.getPrototypeOf(obj)) : (obj) => (obj.__proto__);
-/******/ 		var leafPrototypes;
-/******/ 		// create a fake namespace object
-/******/ 		// mode & 1: value is a module id, require it
-/******/ 		// mode & 2: merge all properties of value into the ns
-/******/ 		// mode & 4: return value when already ns object
-/******/ 		// mode & 16: return value when it's Promise-like
-/******/ 		// mode & 8|1: behave like require
-/******/ 		__webpack_require__.t = function(value, mode) {
-/******/ 			if(mode & 1) value = this(value);
-/******/ 			if(mode & 8) return value;
-/******/ 			if(typeof value === 'object' && value) {
-/******/ 				if((mode & 4) && value.__esModule) return value;
-/******/ 				if((mode & 16) && typeof value.then === 'function') return value;
-/******/ 			}
-/******/ 			var ns = Object.create(null);
-/******/ 			__webpack_require__.r(ns);
-/******/ 			var def = {};
-/******/ 			leafPrototypes = leafPrototypes || [null, getProto({}), getProto([]), getProto(getProto)];
-/******/ 			for(var current = mode & 2 && value; typeof current == 'object' && !~leafPrototypes.indexOf(current); current = getProto(current)) {
-/******/ 				Object.getOwnPropertyNames(current).forEach((key) => (def[key] = () => (value[key])));
-/******/ 			}
-/******/ 			def['default'] = () => (value);
-/******/ 			__webpack_require__.d(ns, def);
-/******/ 			return ns;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -4703,9 +4673,6 @@ var __webpack_exports__ = {};
 /*!******************!*\
   !*** ./index.ts ***!
   \******************/
-var _JSON_LocalStorageZamorakInit_json__WEBPACK_IMPORTED_MODULE_4___namespace_cache;
-var _JSON_ItemsAndImagesZamorak_json__WEBPACK_IMPORTED_MODULE_5___namespace_cache;
-var _JSON_ItemsAndImagesZamorakLegacy_json__WEBPACK_IMPORTED_MODULE_6___namespace_cache;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   autoDisableCheckAuto: () => (/* binding */ autoDisableCheckAuto),
@@ -4785,6 +4752,9 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
+var lsdb;
+var itemsAll;
+var itemsAllLegacy;
 
 
 // TODO: FOR THE PROGRAMMERS AND DEBUGGERS
@@ -4858,6 +4828,16 @@ function init() {
             switch (_c.label) {
                 case 0:
                     buttonDisabler();
+                    return [4 /*yield*/, window.fetch(new URL("./LocalStorageZamorakInit.json", document.location.href).href).then(function (res) { return res.json(); })];
+                case 1:
+                    // Hacky Json Load, Worry about this later
+                    lsdb = _c.sent();
+                    return [4 /*yield*/, window.fetch(new URL("./ItemsAndImagesZamorak.json", document.location.href).href).then(function (res) { return res.json(); })];
+                case 2:
+                    itemsAll = _c.sent();
+                    return [4 /*yield*/, window.fetch(new URL("./ItemsAndImagesZamorakLegacy.json", document.location.href).href).then(function (res) { return res.json(); })];
+                case 3:
+                    itemsAllLegacy = _c.sent();
                     // TODO: This is a fix for when the buttons are clicked once.
                     // When clicked once, it does nothing but when clicked a second
                     // time, it closes and works properly.
@@ -4867,7 +4847,7 @@ function init() {
                     if (seeConsoleLogs)
                         console.log("Initializing LocalStorage items...");
                     if (localStorage.getItem("ZamorakLogger/items") == null) {
-                        localStorage.setItem("ZamorakLogger/items", JSON.stringify(/*#__PURE__*/ (_JSON_LocalStorageZamorakInit_json__WEBPACK_IMPORTED_MODULE_4___namespace_cache || (_JSON_LocalStorageZamorakInit_json__WEBPACK_IMPORTED_MODULE_4___namespace_cache = __webpack_require__.t(_JSON_LocalStorageZamorakInit_json__WEBPACK_IMPORTED_MODULE_4__)))));
+                        localStorage.setItem("ZamorakLogger/items", JSON.stringify(lsdb));
                     }
                     for (i = 0; i < valuesAndCounts.length; i++) {
                         if (localStorage.getItem(valuesAndCounts[i]) == null) {
@@ -4923,24 +4903,24 @@ function init() {
                         localStorage.setItem("ZamorakLogger/History", JSON.stringify([]));
                     }
                     history = JSON.parse(localStorage.getItem("ZamorakLogger/History"));
-                    if (!(history != null)) return [3 /*break*/, 5];
+                    if (!(history != null)) return [3 /*break*/, 8];
                     i = 0;
-                    _c.label = 1;
-                case 1:
-                    if (!(i < history.length)) return [3 /*break*/, 4];
-                    if (!(history[i][6] == undefined)) return [3 /*break*/, 3];
+                    _c.label = 4;
+                case 4:
+                    if (!(i < history.length)) return [3 /*break*/, 7];
+                    if (!(history[i][6] == undefined)) return [3 /*break*/, 6];
                     _b = (_a = history[i]).push;
                     return [4 /*yield*/, dateGetter()];
-                case 2:
-                    _b.apply(_a, [_c.sent()]);
-                    _c.label = 3;
-                case 3:
-                    i++;
-                    return [3 /*break*/, 1];
-                case 4:
-                    localStorage.setItem("ZamorakLogger/History", JSON.stringify(history));
-                    _c.label = 5;
                 case 5:
+                    _b.apply(_a, [_c.sent()]);
+                    _c.label = 6;
+                case 6:
+                    i++;
+                    return [3 /*break*/, 4];
+                case 7:
+                    localStorage.setItem("ZamorakLogger/History", JSON.stringify(history));
+                    _c.label = 8;
+                case 8:
                     if (localStorage.getItem("ZamorakLogger/PrimaryKeyHistory") == null) { // Initialize primary key for history
                         if (seeConsoleLogs)
                             console.log("Defaulting PrimaryKeyHistory to 1");
@@ -4956,7 +4936,7 @@ function init() {
                         console.log("\n");
                     // Set up image libraries
                     return [4 /*yield*/, arraySetup()];
-                case 6:
+                case 9:
                     // Set up image libraries
                     _c.sent();
                     //Set display
@@ -5093,12 +5073,12 @@ function arraySetup() {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    listOfItemsAll = /* non-default import from non-esm module */undefined;
-                    listOfItemsLegacyAll = /* non-default import from non-esm module */undefined;
+                    listOfItemsAll = itemsAll.items;
+                    listOfItemsLegacyAll = itemsAllLegacy.items;
                     listOfItemsAllArray = [];
                     listOfItemsLegacyAllArray = [];
-                    console.log(/*#__PURE__*/ (_JSON_ItemsAndImagesZamorak_json__WEBPACK_IMPORTED_MODULE_5___namespace_cache || (_JSON_ItemsAndImagesZamorak_json__WEBPACK_IMPORTED_MODULE_5___namespace_cache = __webpack_require__.t(_JSON_ItemsAndImagesZamorak_json__WEBPACK_IMPORTED_MODULE_5__))));
-                    console.log(/*#__PURE__*/ (_JSON_ItemsAndImagesZamorakLegacy_json__WEBPACK_IMPORTED_MODULE_6___namespace_cache || (_JSON_ItemsAndImagesZamorakLegacy_json__WEBPACK_IMPORTED_MODULE_6___namespace_cache = __webpack_require__.t(_JSON_ItemsAndImagesZamorakLegacy_json__WEBPACK_IMPORTED_MODULE_6__))));
+                    console.log(itemsAll);
+                    console.log(itemsAllLegacy);
                     promises = [];
                     _loop_1 = function (i) {
                         var _b, _c, _d, _e;
@@ -5229,7 +5209,7 @@ function findtrailComplete(img, autobool) {
                     _o.trys.push([1, 26, , 27]);
                     loc = void 0;
                     imgCaptures = [img.findSubimage(imgs.zamorakChest),
-                        undefined
+                        [undefined] // Add Legacy back maybe eventually?
                     ];
                     if (imgCaptures[0][0] !== undefined) {
                         loc = imgCaptures[0];
@@ -5298,6 +5278,7 @@ function findtrailComplete(img, autobool) {
                         }
                     }
                     catch (e) {
+                        console.log(e);
                         return [2 /*return*/];
                     }
                     if (autobool == true) {

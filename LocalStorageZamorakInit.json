@@ -1,7 +1,37 @@
 {
   "Hydrix bolt tips": {
-      "tab": "equipment",
+      "tab": "general",
       "quantity": 0,
       "order": 1
+  },
+  "Soul rune": {
+      "tab": "general",
+      "quantity": 0,
+      "order": 2
+  },
+  "Dark animica stone spirit": {
+      "tab": "general",
+      "quantity": 0,
+      "order": 3
+  },
+  "Chaos relic (rare)": {
+    "tab": "general",
+    "quantity": 0,
+    "order": 4
+  },
+  "Small plated orikalkum salvage": {
+    "tab": "general",
+    "quantity": 0,
+    "order": 5
+  },
+  "Onyx bolt tips": {
+    "tab": "general",
+    "quantity": 0,
+    "order": 6
+  },
+  "Torstol seed": {
+    "tab": "general",
+    "quantity": 0,
+    "order": 7
   }
 }
