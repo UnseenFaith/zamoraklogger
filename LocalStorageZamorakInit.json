@@ -58,5 +58,15 @@
     "tab": "general",
     "quantity": 0,
     "order": 12
+  },
+  "Infernus pyroclasts": {
+    "tab": "general",
+    "quantity": 0,
+    "order": 13
+  },
+  "Uncut onyx": {
+    "tab": "general",
+    "quantity": 0,
+    "order": 14
   }
 }
