@@ -851,6 +851,7 @@ async function compareItems(item: ImageData) {
 		matches = listOfItemsLegacyAllArray.slice();
 	}
 
+
 	//Check if the item is blank first
 	let imgdata = await compareImages(item, matches[0][1], { output: {}, ignore: "less" });
 	matches[0][2] = imgdata.rawMisMatchPercentage;
