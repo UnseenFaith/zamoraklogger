@@ -5209,7 +5209,7 @@ function findtrailComplete(img, autobool) {
                     _o.trys.push([1, 26, , 27]);
                     loc = void 0;
                     imgCaptures = [img.findSubimage(imgs.zamorakChest),
-                        undefined
+                        [undefined] // Add Legacy back maybe eventually?
                     ];
                     if (imgCaptures[0][0] !== undefined) {
                         loc = imgCaptures[0];
