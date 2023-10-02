@@ -1,5 +1,5 @@
 import { ImgRef, RectLike, Rect, ImageDetect } from "alt1";
-import OCR from "alt1/ocr";
+import * as OCR from "alt1/ocr";
 import { ModalUI } from "./ModalUIReader";
 
 import font from "alt1/fonts/aa_9px_mono_allcaps.js";
