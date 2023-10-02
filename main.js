@@ -5186,7 +5186,7 @@ function capture(autobool) {
 }
 function findtrailComplete(img, autobool) {
     return __awaiter(this, void 0, void 0, function () {
-        var loc, imgCaptures, xdefault, ydefault, xRect, yRect, x1, y1, crops, topCrops, i, croptemp, toptemp, j, value, lastValueList, rewardreader, valueStr, valueList, i, lastValueStr, i, prevValue, itemResults, promises, notBlank, i, itemtemp, j, _a, _b, _c, _d, i, newImg, loc2, x, y, row, col, lastcrop, lastresult, promises2, _e, _f, comparison, itemResultsNoBlanks, i_1, lsHistory, lagDetectValue, equalArrays, i, quantResults, i, j, _g, _h, _j, _k, _l, _m, i, j, i, j, nodevar, imgvar, quantvar, e_1;
+        var loc, imgCaptures, xdefault, ydefault, xRect, yRect, x1, y1, crops, topCrops, i, croptemp, toptemp, j, value, lastValueList, rewardreader, valueStr, valueList, i, lastValueStr, i, prevValue, itemResults, promises, notBlank, i, itemtemp, j, _a, _b, _c, _d, i, newImg, loc2, x, y, row, col, lastcrop, lastresult, promises2, _e, _f, comparison, itemResultsNoBlanks, i_1, lsHistory, lagDetectValue, equalArrays, i, i, quantResults, i, j, _g, _h, _j, _k, _l, _m, i, j, i, j, nodevar, imgvar, quantvar, e_1;
         return __generator(this, function (_o) {
             switch (_o.label) {
                 case 0:
@@ -5518,6 +5518,16 @@ function findtrailComplete(img, autobool) {
                                     console.log("equal arrays is false, setting last value to previous value");
                                 return [2 /*return*/];
                             }
+                        }
+                    }
+                    // Hardcode changing Dwarf and Lantadyme Seeds to Torstols
+                    // Not sure how to handlet his going forward, hardcode for now
+                    // Since Dwarf weeds and lantadyme seeds are always dropped together
+                    // we can assume that two torstol seeds next to each other must be these two seeds and fix them
+                    for (i = 0; i <= itemResults.length; i++) {
+                        if (((i + 1) <= itemResults.length) && itemResults[i] == "Torstol seed" && itemResults[i + 1] == "Torstol seed") {
+                            itemResults[i] = "Dwarf weed seed";
+                            itemResults[i + 1] = "Lantadyme seed";
                         }
                     }
                     quantResults = [];
