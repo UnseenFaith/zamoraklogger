@@ -58,5 +58,10 @@
     "tab": "general",
     "quantity": 0,
     "order": 12
+  },
+  "Inernus pyroclasts": {
+    "tab": "general",
+    "quantity": 0,
+    "order": 13
   }
 }
