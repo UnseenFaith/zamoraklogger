@@ -43,5 +43,15 @@
     "tab": "general",
     "quantity": 0,
     "order": 9
+  },
+  "Dwarf weed seed": {
+    "tab": "general",
+    "quantity": 0,
+    "order": 10
+  },
+  "Lantadyme seed": {
+    "tab": "general",
+    "quantity": 0,
+    "order": 11
   }
 }

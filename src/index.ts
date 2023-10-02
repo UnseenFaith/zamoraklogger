@@ -735,6 +735,18 @@ async function findtrailComplete(img: a1lib.ImgRef, autobool: boolean) {
 			}
 		}
 
+		// Hardcode changing Dwarf and Lantadyme Seeds to Torstols
+		// Not sure how to handlet his going forward, hardcode for now
+
+		// Since Dwarf weeds and lantadyme seeds are always dropped together
+		// we can assume that two torstol seeds next to each other must be these two seeds and fix them
+		for (let i = 0; i <= itemResults.length; i++) {
+			if (((i + 1) <= itemResults.length) && itemResults[i] == "Torstol seed" && itemResults[i+1] == "Torstol seed")) {
+				itemResults[i] = "Dwarf weed seed";
+				itemResults[i+1] = "Lantadyme seed";
+			}
+		}
+
 		// Give me the quantity of the items!
 		let quantResults = [];
 		promises = [];
