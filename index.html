@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>BarrowsLogger: An open-source Barrows logger</title>
+		<title>ZamorakLogger: An open-source Zamorak logger</title>
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 
 		<link rel="stylesheet" type="text/css" href="./styles/nis/bootstrap.min.css">
@@ -11,12 +11,12 @@
 	</head>
 	<body class="nis" onload="window.TestApp.initOnLoad()">
 		<header>
-			<h1 id="title">BarrowsLogger, an open-source Barrows logger</h1> <!-- Keeping nis a class, was so in alt1minimal-->
+			<h1 id="title">ZamorakLogger, an open-source Zamorak logger</h1> <!-- Keeping nis a class, was so in alt1minimal-->
 			<div id="header_box">
 				<div id="button_box">
 					<div id="capture_info">
 						<div class="capture_box_elements" id="count_box">
-							<u>Barrows chests logged</u>: <span id="number_of_rewards">0</span>
+							<u>Zamorak chests logged</u>: <span id="number_of_rewards">0</span>
 						</div>
 						<div class="capture_box_elements" id="total_box">
 							<u>Total value</u>: <span id="value_of_rewards">0</span>
@@ -68,7 +68,7 @@
 		</header>
 		<div id="mainsection">
 			<div id="equipment">
-				<div id="equipment_title"><span id="equipment_rewards" onclick="window.TestApp.toggleLootDisplay(this.id)" title="Click here to hide broadcast rewards">&nbsp;Barrows Equipment&nbsp;</span></div>
+				<div id="equipment_title"><span id="equipment_rewards" onclick="window.TestApp.toggleLootDisplay(this.id)" title="Click here to hide broadcast rewards">&nbsp;Zamorak Equipment&nbsp;</span></div>
 				<div class="bottom_border"></div>
 				<div class="loot_display" id="equipment_loot"></div>
 			</div>
@@ -80,10 +80,9 @@
 		</div>
 		<footer>
 			<div id="footer_bar"></div>
-			<a title="LoggerSuite home" draggable="false" id="home_button" href="https://redx1000.github.io/LoggerSuite/">
-				<img id="home_button_img" draggable="false" src="./images/House_Teleport_icon.png" alt="Go to LoggerSuite">
+			<a title="Github Repo" draggable="false" id="home_button" href="https://github.com/UnseenFaith/zamoraklogger/">
+				<img id="home_button_img" draggable="false" src="./images/House_Teleport_icon.png" alt="Go to Github">
 			</a>
-			<div id="info_button" class="nisbutton" data-toggle="modal" data-target="#info" onclick="">&nbsp;Information & Updates&nbsp;</div>
 		</footer>
 		
 		<!-- SETTINGS MODAL -->
@@ -201,7 +200,7 @@
 							<div class="db_confirm_button nisbutton" onclick="javascript:window.location.reload()" title="Refreshes the page. Does not clear the DB, but may help push an update.">Refresh page</div>
 							<div class="db_confirm_button nisbutton" data-toggle="modal" data-target="#resetSettingsVerif" title="Reset settings back to default.">Reset settings</div>
 							<div class="db_confirm_button nisbutton" data-toggle="modal" data-target="#resetAllVerif" title="Clear all of the items in the database only.">Clear all items</div>
-							<div class="db_confirm_button nisbutton" data-toggle="modal" data-target="#resetOpenVerif" title="Nuclear option, completely resets plugin, but can be used to troubleshoot">Reset BarrowsLogger</div>
+							<div class="db_confirm_button nisbutton" data-toggle="modal" data-target="#resetOpenVerif" title="Nuclear option, completely resets plugin, but can be used to troubleshoot">Reset ZamorakLogger</div>
 							<div class="db_confirm_button nisbuttonblue" data-dismiss="modal" onclick="" title="Do nothing. Go. Get out of here. Leave.">Cancel</div>
 						</div>
 					</div>
@@ -211,14 +210,14 @@
 		</div>
 		<!-- END CLEAR OPTIONS MENU MODAL -->
 
-		<!-- RESET BARROWSLOGGER VERIFICATION MODAL -->
+		<!-- RESET ZamorakLOGGER VERIFICATION MODAL -->
 		<div class="modal fade " id="resetOpenVerif" tabindex="-1" role="dialog" aria-labelledby="important-msg-label" aria-hidden="true">
 			<div class="modal-dialog">
 			  	<div class="modal-content">
 					<div class="modal-header">
 				  		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="close_x">&times;</span><span class="sr-only">Close</span></button>
 						<div class="modal-header-title">
-							<h1 class="modal-title" id="important-msg-label">Completely Reset BarrowsLogger?</h1>
+							<h1 class="modal-title" id="important-msg-label">Completely Reset ZamorakLogger?</h1>
 							<div class="hovertip" title="Hover over the options to learn more!&#10;&#10;Explore the Github link in the footer for more details.">&hairsp;&hairsp;&nbsp;?&nbsp;&hairsp;&hairsp;</div>
 						</div>
 					</div>
@@ -232,7 +231,7 @@
 			  	</div>
 			</div>
 		</div>
-		<!-- END RESET BARROWSLOGGER VERIFICATION MODAL -->
+		<!-- END RESET ZamorakLOGGER VERIFICATION MODAL -->
 
 		<!-- RESET ALL ITEMS VERIFICATION MODAL -->
 		<div class="modal fade " id="resetAllVerif" tabindex="-1" role="dialog" aria-labelledby="important-msg-label" aria-hidden="true">
@@ -287,7 +286,7 @@
 					<div class="modal-header">
 				  		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="close_x">&times;</span><span class="sr-only">Close</span></button>
 				  		<div class="modal-header-title">
-							<h1 class="modal-title" id="important-msg-label">History of Barrows Rewards</h1>
+							<h1 class="modal-title" id="important-msg-label">History of Zamorak Rewards</h1>
 							<div class="hovertip" title="Hover over the options to learn more!&#10;&#10;Explore the Github link in the footer for more details.">&hairsp;&hairsp;&nbsp;?&nbsp;&hairsp;&hairsp;</div>
 							<div class="modal_title_details">Displaying the last <span id="history_quantity" style="color:#FFC000"></span> captured chests</div>
 						</div>
@@ -309,14 +308,14 @@
 					<div class="modal-header">
 				  		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="close_x">&times;</span><span class="sr-only">Close</span></button>
 						<div class="modal-header-title">
-							<h1 class="modal-title" id="important-msg-label">Insert custom Barrows reward</h1>
+							<h1 class="modal-title" id="important-msg-label">Insert custom Zamorak reward</h1>
 							<span class="hovertip" title="Hover over the options to learn more!&#10;&#10;Explore the Github link in the footer for more details.">&hairsp;&hairsp;&nbsp;?&nbsp;&hairsp;&hairsp;</span>
 						</div>
 						<br><div class="modal_title_details">*To remove items and value from <span style="font-family: Consolas;">localStorage</span>, make numbers negative. Custom chests are also logged in History.</div>
 					</div>
 					<div class="modal-body">
 						<div id="insert_value">
-							<label id="insert_value_label" title="Reward value to be inserted"><span class="current_tier_button" id="insert_tier_caps"></span>Barrows<br>Reward<br>Value</label>
+							<label id="insert_value_label" title="Reward value to be inserted"><span class="current_tier_button" id="insert_tier_caps"></span>Zamorak<br>Reward<br>Value</label>
 							<input type="number" step="1" value="0" id="value_input" name="insert_value" title="Reward value to be inserted">
 							<div id="fetchge_button" class="nisbutton" onclick="window.TestApp.fetchFromGE()">Fetch GE</div>
 						</div>
@@ -442,106 +441,6 @@
 		</div>
 		<!-- END INSERT VERIFICATION MODAL -->
 
-		<!-- INFORMATION VERIFICATION MODAL -->
-		<div class="modal fade " id="info" tabindex="-1" role="dialog" aria-labelledby="important-msg-label" aria-hidden="true">
-			<div class="modal-dialog">
-			  	<div class="modal-content">
-					<div class="modal-header">
-				  		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="close_x">&times;</span><span class="sr-only">Close</span></button>
-						<div class="modal-header-title">
-							<h1 class="modal-title" id="important-msg-label">Information and Updates</h1>
-							<div class="hovertip" title="Hover over the options to learn more!&#10;&#10;Explore the Github link in the footer for more details.">&hairsp;&hairsp;&nbsp;?&nbsp;&hairsp;&hairsp;</div>
-						</div>
-					</div>
-					<div class="modal-body" style="user-select: text;">
-						<h2><u>Latest update</u></h2>
-						<div style="font-size: 15px; font-weight: 600;">
-							<span style="color: rgb(224, 228, 18);">
-								<u>(2023/02/13)</u> <br>
-								For the developers, I've applied an MIT license on this project to more clearly state my stance on this project.<br>
-								For the developers, I've made my HTML more compliant, especially with classes and IDs. I've also reorganized my CSS sheet.<br>
-							</span><br>
-							<span style="color: rgb(113, 100, 224);">
-								<u>(2023/01/07)</u> <br>
-								Whoops, removed large image test from live BarrowsLogger.<br>
-							</span><br>
-							<span style="color: rgb(45, 164, 201);">
-								<u>(2022/12/11)</u> <br>
-								Greatly tweaked the UI and functions for BarrowsLogger.<br>
-								<ul>
-									<li>UI should fit better for users with smaller screens</li>
-									<li>Style for History, Insert, and Settings should look better</li>
-									<li>Added different images for item quantites</li>
-									<li>Changed number font for items</li>
-									<li>History and CSV now display capture time and date based on Gametime (UTC) <br>
-									(Note: History logs that do not have a date and time will be assigned the current date and time upon plugin startup)</li>
-								</ul>
-							</span><br>
-							<span style="color: rgb(23, 99, 197);">
-								<u><b>(2022/11/04):</b></u><br>
-								Barrows Icon has been added to the list of scannable items.<br>
-								Every item should be scannable now!<br>
-							</span><br>
-							<span style="color: rgb(236, 170, 27);">
-								I am hunting for a couple of items! <br>
-								If you can get screenshots of the following items and send them to me, that would be amazing!<br>
-								Items are:
-								<ul>
-									<li>Linza's cuirass.</li>
-									<li>Linza's greaves.</li>
-									<li>Linza's hammer. These Linza items come from old barrows reward screenshots.</li>
-								</ul>
-								If you are taking a screenshot, it can be the entire reward window or in the bank. 
-								If taken in the bank, please include a few reference items in the same screenshot so 
-								I can properly crop the image.
-							</span>
-						</div><br style='line-height: 1px; content: " "; display: block; margin: 40px 0;'>
-						
-						<h2><u>Github & Discord</u></h2>
-						<div style="font-size: 15px; font-weight: 600;">
-							This is BarrowsLogger Github page!<br>
-							<a id="githublink" style="cursor: pointer" onclick="openGithub()">
-								Click here for the BarrowsLogger Github page
-							</a><br>
-							The Github page contains:
-							<ul>
-								<li>Detailed instructions for how to use BarrowsLogger.</li>
-								<li>Troubleshooting tips for BarrowsLogger.</li>
-								<li>The host page that allows acces to BarrowsLogger.</li>
-								<li>All of the source code.</li>
-								<li>Special thanks.</li>
-								<li>Other projects I may be working on.</li>
-							</ul>
-						</div>
-						<div style="font-size: 15px; font-weight: 600;">
-							This is my Discord profile! @ <span style="user-select: all;">RedX1000#3655</span><br>
-							Feel free to reach out to me for any of the following reasons:<br>
-							<ul>
-								<li>Bug reports with BarrowsLogger.</li>
-								<li>Runescape updates breaking BarrowsLogger.</li>
-								<li>Suggestions & Compliments.</li>
-								<li>Literally anything else within reason.</li>
-							</ul>
-						</div><br style='line-height: 1px; content: " "; display: block; margin: 35px 0;'>
-
-						<h2><u>Donation link</u></h2>
-						<div style="font-size: 15px; font-weight: 600;">
-							BarrowsLogger is a passion project and I have future plans to use this plugin as a base for other loggers.<br>
-							Consider sending a small donation in this direction 🙂.<br>
-							<br style='line-height: 1px; content: " "; display: block; margin: 10px 0;'>
-							<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#e0a62a', 'L4L7EERT9');kofiwidget2.draw();</script> 
-						</div>
-					</div>
-					<div class="modal-footer">
-						<div class="clear_db_buttons">
-							<div class="nisbuttonblue return_button" data-dismiss="modal" data-toggle="modal" onclick="" title="">Return</div>
-						</div>
-					</div>
-			  	</div>
-			</div>
-		</div>
-		<!-- END INFORMATION VERIFICATION MODAL -->
-
 		<script src="./main.js"></script>
     <script src="./scripts/bootstrap.min.js"></script>
 		<script>
@@ -629,7 +528,7 @@
 			}
   		
 			function openGithub(){
-				window.open("https://github.com/RedX1000/BarrowsLogger")
+				window.open("https://github.com/UnseenFaith/zamoraklogger")
 			}
 		</script>
 	</body>

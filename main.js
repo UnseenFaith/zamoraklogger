@@ -4784,7 +4784,7 @@ var lagDetected = false;
 var buttonDisabletoggle = true;
 var lagCounter = 0;
 var insertVerif = [];
-// Adjust this for larger windows. I want 12 cause barrows.
+// Adjust this for larger windows. I want 12 cause Zamorak.
 var cap = 12;
 var imgs = alt1__WEBPACK_IMPORTED_MODULE_9__.webpackImages({
     zamorakChest: __webpack_require__(/*! ./images/zamorakChest.data.png */ "./images/zamorakChest.data.png"),
@@ -5599,7 +5599,7 @@ function findtrailComplete(img, autobool) {
                         alt1.overLayClearGroup("rect");
                         alt1.overLayClearGroup("lag");
                         alt1.overLaySetGroup("overlays");
-                        alt1.overLayTextEx("Barrows rewards captured successfully!", alt1__WEBPACK_IMPORTED_MODULE_9__.mixColor(100, 255, 100), 20, Math.round(alt1.rsWidth / 2), 200, 4000, "", true, true);
+                        alt1.overLayTextEx("Zamorak rewards captured successfully!", alt1__WEBPACK_IMPORTED_MODULE_9__.mixColor(100, 255, 100), 20, Math.round(alt1.rsWidth / 2), 200, 4000, "", true, true);
                         alt1.overLayRect(alt1__WEBPACK_IMPORTED_MODULE_9__.mixColor(0, 255, 0), xRect, yRect, imgs.zamorakChest.width + 345, imgs.zamorakChest.height + 291, 1000, 2);
                     }
                     lagDetected = false;
@@ -6032,7 +6032,7 @@ function historyInit() {
                     customSpan.setAttribute("class", "customSpan");
                     customSpan.setAttribute("title", "Custom clue manually inserted.");
                     customSpan.textContent = " [C] ";
-                    var countText = "Barrows reward: " + index;
+                    var countText = "Zamorak reward: " + index;
                     var count = document.createElement("div");
                     count.innerHTML = countText;
                     count.setAttribute("class", "historyCount");
@@ -6041,7 +6041,7 @@ function historyInit() {
                 }
                 else {
                     var count = document.createElement("div");
-                    count.textContent = "Barrows reward: " + index;
+                    count.textContent = "Zamorak reward: " + index;
                     count.setAttribute("class", "historyCount");
                     container.append(count);
                 }
@@ -6187,7 +6187,7 @@ function rollbackYes(id) {
         if (historyCount[i] == undefined) {
             continue;
         }
-        historyCount[i].textContent = "Barrows reward: " + index;
+        historyCount[i].textContent = "Zamorak reward: " + index;
         index--;
     }
     historyClear();
@@ -6411,7 +6411,7 @@ function verifyInsert(event) {
                     customSpan.setAttribute("class", "customSpan");
                     customSpan.setAttribute("title", "Custom clue manually inserted.");
                     customSpan.textContent = " [C] ";
-                    countText = "barrows chest" + ": " + curr;
+                    countText = "Zamorak chest" + ": " + curr;
                     count = document.createElement("div");
                     count.innerHTML = countText;
                     count.setAttribute("class", "historyCount");
@@ -6485,7 +6485,7 @@ function insertToDB() {
     if (window.alt1) {
         alt1.overLayClearGroup("overlays");
         alt1.overLaySetGroup("overlays");
-        alt1.overLayTextEx("Submitting custom barrows reward to Database...", alt1__WEBPACK_IMPORTED_MODULE_9__.mixColor(255, 144, 0), 20, Math.round(alt1.rsWidth / 2), 200, 40000, "", true, true);
+        alt1.overLayTextEx("Submitting custom Zamorak reward to Database...", alt1__WEBPACK_IMPORTED_MODULE_9__.mixColor(255, 144, 0), 20, Math.round(alt1.rsWidth / 2), 200, 40000, "", true, true);
     }
     var itemsList = insertVerif[0];
     var itemsList2D = [];
@@ -6519,7 +6519,7 @@ function insertToDB() {
     if (window.alt1) {
         alt1.overLayClearGroup("overlays");
         alt1.overLaySetGroup("overlays");
-        alt1.overLayTextEx("Custom Barrows chest submitted successfully!", alt1__WEBPACK_IMPORTED_MODULE_9__.mixColor(100, 255, 100), 20, Math.round(alt1.rsWidth / 2), 200, 4000, "", true, true);
+        alt1.overLayTextEx("Custom Zamorak chest submitted successfully!", alt1__WEBPACK_IMPORTED_MODULE_9__.mixColor(100, 255, 100), 20, Math.round(alt1.rsWidth / 2), 200, 4000, "", true, true);
     }
 }
 function settingsInit() {
