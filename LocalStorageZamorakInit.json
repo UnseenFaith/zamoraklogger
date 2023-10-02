@@ -33,5 +33,25 @@
     "tab": "general",
     "quantity": 0,
     "order": 7
+  },
+  "Raw rocktail": {
+    "tab": "general",
+    "quantity": 0,
+    "order": 8
+  },
+  "Huge bladed rune salvage": {
+    "tab": "general",
+    "quantity": 0,
+    "order": 9
+  },
+  "Dwarf weed seed": {
+    "tab": "general",
+    "quantity": 0,
+    "order": 10
+  },
+  "Lantadyme seed": {
+    "tab": "general",
+    "quantity": 0,
+    "order": 11
   }
 }

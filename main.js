@@ -4784,7 +4784,7 @@ var lagDetected = false;
 var buttonDisabletoggle = true;
 var lagCounter = 0;
 var insertVerif = [];
-// Adjust this for larger windows. I want 12 cause barrows.
+// Adjust this for larger windows. I want 12 cause Zamorak.
 var cap = 12;
 var imgs = alt1__WEBPACK_IMPORTED_MODULE_9__.webpackImages({
     zamorakChest: __webpack_require__(/*! ./images/zamorakChest.data.png */ "./images/zamorakChest.data.png"),
@@ -5186,7 +5186,7 @@ function capture(autobool) {
 }
 function findtrailComplete(img, autobool) {
     return __awaiter(this, void 0, void 0, function () {
-        var loc, imgCaptures, xdefault, ydefault, xRect, yRect, x1, y1, crops, topCrops, i, croptemp, toptemp, j, value, lastValueList, rewardreader, valueStr, valueList, i, lastValueStr, i, prevValue, itemResults, promises, notBlank, i, itemtemp, j, _a, _b, _c, _d, i, newImg, loc2, x, y, row, col, lastcrop, lastresult, promises2, _e, _f, comparison, itemResultsNoBlanks, i_1, lsHistory, lagDetectValue, equalArrays, i, quantResults, i, j, _g, _h, _j, _k, _l, _m, i, j, i, j, nodevar, imgvar, quantvar, e_1;
+        var loc, imgCaptures, xdefault, ydefault, xRect, yRect, x1, y1, crops, topCrops, i, croptemp, toptemp, j, value, lastValueList, rewardreader, valueStr, valueList, i, lastValueStr, i, prevValue, itemResults, promises, notBlank, i, itemtemp, j, _a, _b, _c, _d, i, newImg, loc2, x, y, row, col, lastcrop, lastresult, promises2, _e, _f, comparison, itemResultsNoBlanks, i_1, lsHistory, lagDetectValue, equalArrays, i, i, j, quantResults, i, j, _g, _h, _j, _k, _l, _m, i, j, i, j, nodevar, imgvar, quantvar, e_1;
         return __generator(this, function (_o) {
             switch (_o.label) {
                 case 0:
@@ -5520,6 +5520,18 @@ function findtrailComplete(img, autobool) {
                             }
                         }
                     }
+                    // Hardcode changing Dwarf and Lantadyme Seeds to Torstols
+                    // Not sure how to handlet his going forward, hardcode for now
+                    // Since Dwarf weeds and lantadyme seeds are always dropped together
+                    // we can assume that two torstol seeds next to each other must be these two seeds and fix them
+                    for (i = 0; i < itemResults.length; i++) {
+                        for (j = 0; j < itemResults[i].length; j++) {
+                            if (((j + 1) <= itemResults[i].length) && itemResults[i][j] == "Torstol seed" && itemResults[i][j + 1] == "Torstol seed") {
+                                itemResults[i][j] = "Dwarf weed seed";
+                                itemResults[i][j + 1] = "Lantadyme seed";
+                            }
+                        }
+                    }
                     quantResults = [];
                     promises = [];
                     i = 0;
@@ -5599,7 +5611,7 @@ function findtrailComplete(img, autobool) {
                         alt1.overLayClearGroup("rect");
                         alt1.overLayClearGroup("lag");
                         alt1.overLaySetGroup("overlays");
-                        alt1.overLayTextEx("Barrows rewards captured successfully!", alt1__WEBPACK_IMPORTED_MODULE_9__.mixColor(100, 255, 100), 20, Math.round(alt1.rsWidth / 2), 200, 4000, "", true, true);
+                        alt1.overLayTextEx("Zamorak rewards captured successfully!", alt1__WEBPACK_IMPORTED_MODULE_9__.mixColor(100, 255, 100), 20, Math.round(alt1.rsWidth / 2), 200, 4000, "", true, true);
                         alt1.overLayRect(alt1__WEBPACK_IMPORTED_MODULE_9__.mixColor(0, 255, 0), xRect, yRect, imgs.zamorakChest.width + 345, imgs.zamorakChest.height + 291, 1000, 2);
                     }
                     lagDetected = false;
@@ -6032,7 +6044,7 @@ function historyInit() {
                     customSpan.setAttribute("class", "customSpan");
                     customSpan.setAttribute("title", "Custom clue manually inserted.");
                     customSpan.textContent = " [C] ";
-                    var countText = "Barrows reward: " + index;
+                    var countText = "Zamorak reward: " + index;
                     var count = document.createElement("div");
                     count.innerHTML = countText;
                     count.setAttribute("class", "historyCount");
@@ -6041,7 +6053,7 @@ function historyInit() {
                 }
                 else {
                     var count = document.createElement("div");
-                    count.textContent = "Barrows reward: " + index;
+                    count.textContent = "Zamorak reward: " + index;
                     count.setAttribute("class", "historyCount");
                     container.append(count);
                 }
@@ -6187,7 +6199,7 @@ function rollbackYes(id) {
         if (historyCount[i] == undefined) {
             continue;
         }
-        historyCount[i].textContent = "Barrows reward: " + index;
+        historyCount[i].textContent = "Zamorak reward: " + index;
         index--;
     }
     historyClear();
@@ -6411,7 +6423,7 @@ function verifyInsert(event) {
                     customSpan.setAttribute("class", "customSpan");
                     customSpan.setAttribute("title", "Custom clue manually inserted.");
                     customSpan.textContent = " [C] ";
-                    countText = "barrows chest" + ": " + curr;
+                    countText = "Zamorak chest" + ": " + curr;
                     count = document.createElement("div");
                     count.innerHTML = countText;
                     count.setAttribute("class", "historyCount");
@@ -6485,7 +6497,7 @@ function insertToDB() {
     if (window.alt1) {
         alt1.overLayClearGroup("overlays");
         alt1.overLaySetGroup("overlays");
-        alt1.overLayTextEx("Submitting custom barrows reward to Database...", alt1__WEBPACK_IMPORTED_MODULE_9__.mixColor(255, 144, 0), 20, Math.round(alt1.rsWidth / 2), 200, 40000, "", true, true);
+        alt1.overLayTextEx("Submitting custom Zamorak reward to Database...", alt1__WEBPACK_IMPORTED_MODULE_9__.mixColor(255, 144, 0), 20, Math.round(alt1.rsWidth / 2), 200, 40000, "", true, true);
     }
     var itemsList = insertVerif[0];
     var itemsList2D = [];
@@ -6519,7 +6531,7 @@ function insertToDB() {
     if (window.alt1) {
         alt1.overLayClearGroup("overlays");
         alt1.overLaySetGroup("overlays");
-        alt1.overLayTextEx("Custom Barrows chest submitted successfully!", alt1__WEBPACK_IMPORTED_MODULE_9__.mixColor(100, 255, 100), 20, Math.round(alt1.rsWidth / 2), 200, 4000, "", true, true);
+        alt1.overLayTextEx("Custom Zamorak chest submitted successfully!", alt1__WEBPACK_IMPORTED_MODULE_9__.mixColor(100, 255, 100), 20, Math.round(alt1.rsWidth / 2), 200, 4000, "", true, true);
     }
 }
 function settingsInit() {
