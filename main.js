@@ -5278,6 +5278,7 @@ function findtrailComplete(img, autobool) {
                         }
                     }
                     catch (e) {
+                        console.log(e);
                         return [2 /*return*/];
                     }
                     if (autobool == true) {
