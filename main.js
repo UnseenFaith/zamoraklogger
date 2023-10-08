@@ -4766,7 +4766,7 @@ var settingslist = ["ZamorakLogger/Checked button", "ZamorakLogger/Algorithm", "
 var valuesAndCounts = ["ZamorakLogger/Value", "ZamorakLogger/Count"];
 var rewardSlots = ["first_item", "second_item", "third_item", "fourth_item", "fifth_item",
     "sixth_item", "seventh_item", "eigth_item", "ninth_item", "tenth_item",
-    "eleventh_item", "twelfth_item"];
+    "eleventh_item", "twelfth_item", "thirteenth_item", "fourteenth_item"];
 var listOfItemsAll = [];
 var listOfItemsAllArray = [];
 var listOfItemsLegacyAll = [];
