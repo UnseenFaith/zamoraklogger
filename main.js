@@ -4846,7 +4846,7 @@ var lagDetected = false;
 var buttonDisabletoggle = true;
 var lagCounter = 0;
 var insertVerif = [];
-var enrage = 0;
+var enrage = 2000;
 // Adjust this for larger windows. I want 12 cause Zamorak.
 var cap = 12;
 var imgs = alt1__WEBPACK_IMPORTED_MODULE_10__.webpackImages({
@@ -7131,7 +7131,7 @@ function getThreshold() {
     else if (enrage < 1500) {
         return 35;
     }
-    else if (enrage < 2000) {
+    else if (enrage <= 2000) {
         return 31;
     }
     else {
@@ -7148,7 +7148,7 @@ function decrementBLM(blm) {
     else if (enrage < 2000) {
         blm = Math.max(10, blm - 4);
     }
-    else if (enrage > 2000) {
+    else if (enrage >= 2000) {
         blm = Math.max(5, blm - 8);
     }
     localStorage.setItem("ZamorakLogger/BLM", JSON.stringify(blm));
