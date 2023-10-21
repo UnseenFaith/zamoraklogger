@@ -526,7 +526,8 @@ header {
 
 #number_of_rewards,
 #value_of_rewards,
-#average_of_rewards {
+#average_of_rewards,
+#bad_luck_mitigation {
   color:#FFC000;
   font-size: 14px;
 }
@@ -650,7 +651,7 @@ header {
   display: grid;
   position: center;
   margin: auto;
-  width: 300px;
+  width: 325px;
 }
 
 #captured_rewards_title {
@@ -668,7 +669,7 @@ header {
 #captured_rewards_grid{
   width: 100%;
   display:grid;
-  grid-template-columns: repeat(6, auto);
+  grid-template-columns: repeat(7, auto);
   text-align: center;
   border: 2px ridge #f0b216;
   background: url(../../images/items/Blank.png) repeat;
