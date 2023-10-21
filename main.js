@@ -4846,7 +4846,7 @@ var lagDetected = false;
 var buttonDisabletoggle = true;
 var lagCounter = 0;
 var insertVerif = [];
-var enrage = 2000;
+var enrage = 0;
 // Adjust this for larger windows. I want 12 cause Zamorak.
 var cap = 12;
 var imgs = alt1__WEBPACK_IMPORTED_MODULE_10__.webpackImages({
@@ -7184,6 +7184,7 @@ setInterval(function () {
         if (newEnrage == null)
             return;
         if (newEnrage != enrage) {
+            console.log("Set Enrage to " + newEnrage);
             enrage = newEnrage;
         }
     }
