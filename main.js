@@ -4977,6 +4977,11 @@ function init() {
                             console.log("Creating history");
                         localStorage.setItem("ZamorakLogger/History", JSON.stringify([]));
                     }
+                    if (localStorage.getItem("ZamorakLogger/BLM") == null) { // Bad Luck Mitigation
+                        if (seeConsoleLogs)
+                            console.log("Creating BLM");
+                        localStorage.setItem("ZamorakLogger/BLM", "0");
+                    }
                     history = JSON.parse(localStorage.getItem("ZamorakLogger/History"));
                     if (!(history != null)) return [3 /*break*/, 13];
                     i = 0;
@@ -5678,6 +5683,8 @@ function findtrailComplete(img, autobool) {
                             document.getElementById(rewardSlots[(i * 8) + j]).appendChild(nodevar);
                         }
                     }
+                    // Update Our BLM
+                    updateBLM();
                     //Show it on the screen!
                     lootDisplay();
                     //Display the victory screen!!!
@@ -6041,6 +6048,7 @@ function lootDisplay() {
     else {
         document.getElementById("average_of_rewards").textContent = "0";
     }
+    document.getElementById("bad_luck_mitigation").textContent = JSON.parse(localStorage.getItem("ZamorakLogger/BLM"));
     //Set the icons in the tabs
     tabDisplay();
 }
@@ -7070,6 +7078,80 @@ function orderChecker(order, item) {
         order = 990;
     }
     return order;
+}
+function updateBLM() {
+    var blm = parseInt(localStorage.getItem("ZamorakLogger/BLM"));
+    if (blm == 0) {
+        var newBlm = getThreshold();
+        localStorage.setItem("ZamorakLogger/BLM", JSON.stringify(newBlm));
+    }
+    else {
+        // TODO: Come back and create a 10 kill limit before it'll decrement BLM since it only starts after 10 failed rolls
+        decrementBLM(blm);
+    }
+}
+function getThreshold() {
+    // TODO: Come back and add Tier 4 Luck -1 denominator at some point, not too big of a deal right now
+    if (enrage < 20) {
+        return 100;
+    }
+    else if (enrage < 50) {
+        return 99;
+    }
+    else if (enrage < 100) {
+        return 97;
+    }
+    else if (enrage < 150) {
+        return 80;
+    }
+    else if (enrage < 200) {
+        return 77;
+    }
+    else if (enrage < 300) {
+        return 72;
+    }
+    else if (enrage < 400) {
+        return 67;
+    }
+    else if (enrage < 500) {
+        return 62;
+    }
+    else if (enrage < 750) {
+        return 52;
+    }
+    else if (enrage < 900) {
+        return 47;
+    }
+    else if (enrage < 1000) {
+        return 40;
+    }
+    else if (enrage < 1250) {
+        return 37;
+    }
+    else if (enrage < 1500) {
+        return 35;
+    }
+    else if (enrage < 2000) {
+        return 31;
+    }
+    else {
+        return 28;
+    }
+}
+function decrementBLM(blm) {
+    if (enrage > 99 && enrage < 500) {
+        blm = Math.max(20, blm - 1);
+    }
+    else if (enrage < 1000) {
+        blm = Math.max(20, blm - 2);
+    }
+    else if (enrage < 2000) {
+        blm = Math.max(10, blm - 4);
+    }
+    else if (enrage > 2000) {
+        blm = Math.max(5, blm - 8);
+    }
+    localStorage.setItem("ZamorakLogger/BLM", JSON.stringify(blm));
 }
 function buttonDisabler() {
     if (localStorage.getItem("ZamorakLogger/autoCapture") !== "true") {
