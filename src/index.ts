@@ -2255,14 +2255,16 @@ function orderChecker(order: number, item: string) {
 }
 
 function updateBLM() {
-	var blm = parseInt(localStorage.getItem("ZamorakLogger/BLM"));
-	if (blm == 0) {
-		let newBlm = getThreshold();
-		localStorage.setItem("ZamorakLogger/BLM", JSON.stringify(newBlm));
+	let blm = parseInt(localStorage.getItem("ZamorakLogger/BLM"));
+	let threshold = getThreshold();
+	if (threshold < blm || blm == 0) {
+		blm = threshold;
 	} else {
 		// TODO: Come back and create a 10 kill limit before it'll decrement BLM since it only starts after 10 failed rolls
-		decrementBLM(blm)
+		blm = decrementBLM(blm)
 	}
+	localStorage.setItem("ZamorakLogger/BLM", JSON.stringify(blm));
+
 }
 
 function getThreshold() {
@@ -2311,7 +2313,8 @@ function decrementBLM(blm: number) {
 		blm = Math.max(5, blm - 8)
 	}
 
-	localStorage.setItem("ZamorakLogger/BLM", JSON.stringify(blm))
+	return blm;
+
 }
 
 
