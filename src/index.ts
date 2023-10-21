@@ -7,10 +7,12 @@ import pixelmatch from "pixelmatch";
 
 import ZamorakReader from "./scripts/ZamorakReader";
 import { ModalUIReader } from "./scripts/ModalUIReader";
+import { EnrageUIReader } from "./scripts/EnrageUIReader";
 
 import "./JSON/LocalStorageZamorakInit.json";
 import "./JSON/ItemsAndImagesZamorak.json";
 import "./JSON/ItemsAndImagesZamorakLegacy.json";
+
 
 var lsdb;
 var itemsAll;
@@ -62,6 +64,8 @@ var lagCounter = 0;
 
 var insertVerif = [];
 
+var enrage = 0;
+
 // Adjust this for larger windows. I want 12 cause Zamorak.
 var cap = 12
 
@@ -94,14 +98,21 @@ export async function initOnLoad() {
 	if (seeConsoleLogs) console.log("\nInitialization complete!");
 }
 
-
 export async function init() {
 	buttonDisabler();
 
 	// Hacky Json Load, Worry about this later
-	lsdb = await window.fetch(new URL("./LocalStorageZamorakInit.json", document.location.href).href).then(res => res.json());
-	itemsAll = await window.fetch(new URL("./ItemsAndImagesZamorak.json", document.location.href).href).then(res => res.json());
-	itemsAllLegacy = await window.fetch(new URL("./ItemsAndImagesZamorakLegacy.json", document.location.href).href).then(res => res.json());
+	/// Check if file protocol to enable developmental testing
+	if (document.location.href.startsWith("file:///")) {
+		lsdb = await window.fetch(new URL("./LocalStorageZamorakInit.json", "https://unseenfaith.github.io/zamoraklogger/").href).then(res => res.json());
+		itemsAll = await window.fetch(new URL("./ItemsAndImagesZamorak.json", "https://unseenfaith.github.io/zamoraklogger/").href).then(res => res.json());
+		itemsAllLegacy = await window.fetch(new URL("./ItemsAndImagesZamorakLegacy.json", "https://unseenfaith.github.io/zamoraklogger/").href).then(res => res.json());
+	} else {
+		lsdb = await window.fetch(new URL("./LocalStorageZamorakInit.json", document.location.href).href).then(res => res.json());
+		itemsAll = await window.fetch(new URL("./ItemsAndImagesZamorak.json", document.location.href).href).then(res => res.json());
+		itemsAllLegacy = await window.fetch(new URL("./ItemsAndImagesZamorakLegacy.json", document.location.href).href).then(res => res.json());
+	}
+
 
 
 	// TODO: This is a fix for when the buttons are clicked once.
@@ -368,7 +379,7 @@ function alt1pressedcapture() {
 }
 
 
-export async function capture(autobool: boolean) {
+export async function capture(autobool: boolean, img?: a1lib.ImgRef) {
 	if (!window.alt1) {
 		return;
 	}
@@ -385,7 +396,7 @@ export async function capture(autobool: boolean) {
 		}
 	}
 
-	let img = a1lib.captureHoldFullRs();
+	img = img || a1lib.captureHoldFullRs();
 
 	const promises = [];
 	promises.push(await findtrailComplete(img, autobool));
@@ -491,7 +502,7 @@ async function findtrailComplete(img: a1lib.ImgRef, autobool: boolean) {
 		let lastValueList = [];
 		try {
 			let rewardreader = new ZamorakReader();  // Thanks Skillbert
-			rewardreader.pos = ModalUIReader.find()[0]; // For these two functions
+			rewardreader.pos = ModalUIReader.find(img)[0]; // For these two functions
 			value = rewardreader.read(img).value;
 			let valueStr = value.toString();
 			let valueList = [];
@@ -2262,6 +2273,13 @@ function buttonEnabler() {
 //	<div>paste an image of rs with homeport button (or not)</div>
 //	<div onclick='TestApp.capture()'>Click to capture if on alt1</div>`
 //);
+
+a1lib.PasteInput.listen(img => {
+	console.log("Input Pasted")
+	var reader = EnrageUIReader.find(img);
+	document.getElementsByTagName("footer")[0].appendChild(reader.img.toData(reader.rect.x, reader.rect.y, reader.rect.width, reader.rect.height).toImage());
+	//capture(false, img);
+});
 
 //check if we are running inside alt1 by checking if the alt1 global exists
 if (window.alt1) {
