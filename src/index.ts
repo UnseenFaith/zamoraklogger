@@ -64,7 +64,7 @@ var lagCounter = 0;
 
 var insertVerif = [];
 
-var enrage = 0;
+var enrage = 2000;
 
 // Adjust this for larger windows. I want 12 cause Zamorak.
 var cap = 12
@@ -2155,7 +2155,7 @@ async function dateGetter(){
 }
 
 
-function removeChildNodes(div: any) { // https://stackoverflow.com/a/40606838
+function removeChildNodes(div: any) { //https://stackoverflow.com/a/40606838
 	while (div.firstChild) {
         div.firstChild.remove();
     }
@@ -2293,7 +2293,7 @@ function getThreshold() {
 		return 37;
 	} else if (enrage < 1500) {
 		return 35;
-	} else if (enrage < 2000) {
+	} else if (enrage <= 2000) {
 		return 31;
 	} else {
 		return 28;
@@ -2307,7 +2307,7 @@ function decrementBLM(blm: number) {
 		blm = Math.max(20, blm - 2);
 	} else if (enrage < 2000) {
 		blm = Math.max(10, blm - 4)
-	} else if (enrage > 2000) {
+	} else if (enrage >= 2000) {
 		blm = Math.max(5, blm - 8)
 	}
 
