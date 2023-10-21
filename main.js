@@ -6048,7 +6048,7 @@ function lootDisplay() {
     else {
         document.getElementById("average_of_rewards").textContent = "0";
     }
-    document.getElementById("bad_luck_mitigation").textContent = JSON.parse(localStorage.getItem("ZamorakLogger/BLM"));
+    document.getElementById("bad_luck_mitigation").textContent = "1 in " + JSON.parse(localStorage.getItem("ZamorakLogger/BLM"));
     //Set the icons in the tabs
     tabDisplay();
 }
