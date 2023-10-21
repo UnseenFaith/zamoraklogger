@@ -7132,12 +7132,14 @@ function getThreshold() {
     else if (enrage < 1500) {
         return 35;
     }
-    else if (enrage <= 2000) {
+    else if (enrage < 2000) {
         return 31;
     }
-    else {
+    else if (enrage >= 2000) {
         return 28;
     }
+    // Normal Mode
+    return 250;
 }
 function decrementBLM(blm) {
     if (enrage > 99 && enrage < 500) {
