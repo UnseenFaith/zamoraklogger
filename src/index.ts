@@ -7,7 +7,7 @@ import pixelmatch from "pixelmatch";
 
 import ZamorakReader from "./scripts/ZamorakReader";
 import { ModalUIReader } from "./scripts/ModalUIReader";
-import { EnrageUIReader } from "./scripts/EnrageUIReader";
+import { EnrageUIReader, EnragePosition } from "./scripts/EnrageUIReader";
 
 import "./JSON/LocalStorageZamorakInit.json";
 import "./JSON/ItemsAndImagesZamorak.json";
@@ -2266,20 +2266,20 @@ function buttonEnabler() {
 	buttonDisabletoggle = true
 }
 
-//print text world
-//also the worst possible example of how to use global exposed exports as described in webpack.config.json
+var enragePos: EnragePosition = null;
+setInterval(() => {
+	if (enragePos == null) {
+		enragePos = EnrageUIReader.find();
+	}
 
-//output.insertAdjacentHTML("beforeend", `
-//	<div>paste an image of rs with homeport button (or not)</div>
-//	<div onclick='TestApp.capture()'>Click to capture if on alt1</div>`
-//);
-
-a1lib.PasteInput.listen(img => {
-	console.log("Input Pasted")
-	var reader = EnrageUIReader.find(img);
-	document.getElementsByTagName("footer")[0].appendChild(reader.img.toData(reader.rect.x, reader.rect.y, reader.rect.width, reader.rect.height).toImage());
-	//capture(false, img);
-});
+	if (enragePos) {
+		var newEnrage = EnrageUIReader.read(enragePos)
+		if (newEnrage == null) return;
+		if (newEnrage != enrage) {
+			enrage = newEnrage;
+		}
+	}
+}, 5000)
 
 //check if we are running inside alt1 by checking if the alt1 global exists
 if (window.alt1) {
