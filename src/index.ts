@@ -1173,7 +1173,7 @@ function lootDisplay() {
 		(document.getElementById("average_of_rewards") as HTMLSpanElement).textContent = "0";
 	}
 
-	(document.getElementById("bad_luck_mitigation") as HTMLSpanElement).textContent = JSON.parse(localStorage.getItem("ZamorakLogger/BLM"));
+	(document.getElementById("bad_luck_mitigation") as HTMLSpanElement).textContent = "1 in " + JSON.parse(localStorage.getItem("ZamorakLogger/BLM"));
 
 	//Set the icons in the tabs
 	tabDisplay();
