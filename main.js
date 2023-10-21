@@ -7081,14 +7081,15 @@ function orderChecker(order, item) {
 }
 function updateBLM() {
     var blm = parseInt(localStorage.getItem("ZamorakLogger/BLM"));
-    if (blm == 0) {
-        var newBlm = getThreshold();
-        localStorage.setItem("ZamorakLogger/BLM", JSON.stringify(newBlm));
+    var threshold = getThreshold();
+    if (threshold < blm || blm == 0) {
+        blm = threshold;
     }
     else {
         // TODO: Come back and create a 10 kill limit before it'll decrement BLM since it only starts after 10 failed rolls
-        decrementBLM(blm);
+        blm = decrementBLM(blm);
     }
+    localStorage.setItem("ZamorakLogger/BLM", JSON.stringify(blm));
 }
 function getThreshold() {
     // TODO: Come back and add Tier 4 Luck -1 denominator at some point, not too big of a deal right now
@@ -7151,7 +7152,7 @@ function decrementBLM(blm) {
     else if (enrage >= 2000) {
         blm = Math.max(5, blm - 8);
     }
-    localStorage.setItem("ZamorakLogger/BLM", JSON.stringify(blm));
+    return blm;
 }
 function buttonDisabler() {
     if (localStorage.getItem("ZamorakLogger/autoCapture") !== "true") {
