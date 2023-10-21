@@ -526,7 +526,8 @@ header {
 
 #number_of_rewards,
 #value_of_rewards,
-#average_of_rewards {
+#average_of_rewards,
+#bad_luck_mitigation {
   color:#FFC000;
   font-size: 14px;
 }
