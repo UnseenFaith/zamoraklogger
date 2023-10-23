@@ -2254,6 +2254,13 @@ function orderChecker(order: number, item: string) {
 	return order
 }
 
+// TODO: Fix BLM Calcuation
+// The current way I have it does not work.
+// The way it works is:
+// No bad luck points until 10 kills.
+// Upon reaching 10 kills, start accumulating points
+// Apply accumulated points and increment them based on enrage, and apply that to the current
+// threshold for the enrage you are killing
 function updateBLM() {
 	let blm = parseInt(localStorage.getItem("ZamorakLogger/BLM"));
 	let threshold = getThreshold();
@@ -2340,6 +2347,7 @@ function buttonEnabler() {
 	(document.getElementById("toggleunlocktrack") as HTMLDivElement).setAttribute("onclick", "TestApp.toggleCapture(event)");
 	buttonDisabletoggle = true
 }
+
 
 var enragePos: EnragePosition = null;
 setInterval(() => {
