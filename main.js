@@ -7079,6 +7079,13 @@ function orderChecker(order, item) {
     }
     return order;
 }
+// TODO: Fix BLM Calcuation
+// The current way I have it does not work.
+// The way it works is:
+// No bad luck points until 10 kills.
+// Upon reaching 10 kills, start accumulating points
+// Apply accumulated points and increment them based on enrage, and apply that to the current
+// threshold for the enrage you are killing
 function updateBLM() {
     var blm = parseInt(localStorage.getItem("ZamorakLogger/BLM"));
     var threshold = getThreshold();
